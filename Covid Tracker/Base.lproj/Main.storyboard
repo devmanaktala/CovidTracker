@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid19 Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFj-x3-gNw">
+                                <rect key="frame" x="20" y="58" width="374" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="zKJ-sT-L8B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackgroundMap" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-ya-GQP">
+                                <rect key="frame" x="10" y="98" width="394" height="772"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfQ-3a-I1o" userLabel="Maharashtra">
+                                <rect key="frame" x="80" y="502" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Maharashtra"/>
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="ButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFt-hV-18o"/>
+                                    <segue destination="BtG-82-sob" kind="showDetail" identifier="mh" id="S6f-ft-CvZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgz-7p-CDZ" userLabel="Tamil Nadu">
+                                <rect key="frame" x="131" y="615" width="35" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Tamil Nadu"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="ButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVe-L9-acI"/>
+                                    <segue destination="BtG-82-sob" kind="show" identifier="tn" id="1RV-xi-55b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zT4-KL-x0w" userLabel="Delhi">
+                                <rect key="frame" x="117" y="355" width="36" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Delhi"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="ButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6B-6e-Iu3"/>
+                                    <segue destination="BtG-82-sob" kind="show" identifier="dl" id="411-Bf-8uZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGi-6w-wAB">
+                                <rect key="frame" x="266" y="444" width="38" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="West Bengal"/>
+                                <state key="normal" title="West Bengal" image="circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="ButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eHb-EC-jlO"/>
+                                    <segue destination="BtG-82-sob" kind="show" identifier="wb" id="Cal-Ds-jZo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hs2-O0-znI">
+                                <rect key="frame" x="20" y="768" width="374" height="45"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="analysis"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="NuE-nK-dfl"/>
+                                </constraints>
+                                <state key="normal" title="Analysis">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hhQ-5a-hsF" kind="show" identifier="analysis" id="hcu-0M-Onr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vFj-x3-gNw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="40C-Yr-zPq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hs2-O0-znI" secondAttribute="trailing" constant="20" id="Abm-q7-vY6"/>
+                            <constraint firstAttribute="trailing" secondItem="vFj-x3-gNw" secondAttribute="trailing" constant="20" id="LJi-H2-XTf"/>
+                            <constraint firstItem="Hs2-O0-znI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Mrp-Ct-caY"/>
+                            <constraint firstItem="vFj-x3-gNw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="OEO-Hz-65C"/>
+                            <constraint firstItem="Hs2-O0-znI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gxE-0z-Uy0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Mwg-z7-uwh"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="Analysis" destination="Hs2-O0-znI" id="eoD-DP-iFX"/>
+                        <outlet property="Delhi" destination="zT4-KL-x0w" id="kMt-Aj-KNH"/>
+                        <outlet property="Header" destination="vFj-x3-gNw" id="jEn-j2-ZGn"/>
+                        <outlet property="Maharashtra" destination="KfQ-3a-I1o" id="Lwh-Co-F6s"/>
+                        <outlet property="TamilNadu" destination="Hgz-7p-CDZ" id="ZoL-fp-GmY"/>
+                        <outlet property="WestBengal" destination="MGi-6w-wAB" id="DnT-dp-okJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="87.723214285714278"/>
+        </scene>
+        <!--Analysis View Controller-->
+        <scene sceneID="dSK-Nm-2dk">
+            <objects>
+                <viewController id="hhQ-5a-hsF" customClass="AnalysisViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="84N-mq-tkF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-jv-lvI">
+                                <rect key="frame" x="20" y="134" width="374" height="216"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rC0-0s-o24">
+                                <rect key="frame" x="40" y="365" width="334" height="45"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gEg-Or-jHg"/>
+                                </constraints>
+                                <state key="normal" title="Analyse">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnalysePressed:" destination="hhQ-5a-hsF" eventType="touchUpInside" id="TuE-yJ-Mzn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcV-FL-2Q3" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="430" width="374" height="408"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ina-WU-vCl" firstAttribute="trailing" secondItem="EcV-FL-2Q3" secondAttribute="trailing" constant="20" id="AHe-Cy-TUf"/>
+                            <constraint firstItem="uUb-jv-lvI" firstAttribute="leading" secondItem="84N-mq-tkF" secondAttribute="leadingMargin" id="KOB-bq-Alr"/>
+                            <constraint firstItem="EcV-FL-2Q3" firstAttribute="leading" secondItem="ina-WU-vCl" secondAttribute="leading" constant="20" id="KvP-ZK-Q6g"/>
+                            <constraint firstItem="uUb-jv-lvI" firstAttribute="top" secondItem="ina-WU-vCl" secondAttribute="top" constant="90" id="QI6-16-Ewc"/>
+                            <constraint firstItem="rC0-0s-o24" firstAttribute="top" secondItem="uUb-jv-lvI" secondAttribute="bottom" constant="15" id="dcC-aH-foC"/>
+                            <constraint firstItem="rC0-0s-o24" firstAttribute="leading" secondItem="84N-mq-tkF" secondAttribute="leadingMargin" constant="20" id="dwA-Ft-X0b"/>
+                            <constraint firstItem="EcV-FL-2Q3" firstAttribute="top" secondItem="rC0-0s-o24" secondAttribute="bottom" constant="20" id="kOj-rn-uxa"/>
+                            <constraint firstItem="uUb-jv-lvI" firstAttribute="trailing" secondItem="84N-mq-tkF" secondAttribute="trailingMargin" id="lz7-jZ-ULL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rC0-0s-o24" secondAttribute="trailing" constant="20" id="p9d-gE-lLc"/>
+                            <constraint firstAttribute="bottom" secondItem="EcV-FL-2Q3" secondAttribute="bottom" constant="58" id="tHM-dR-Zjo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ina-WU-vCl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Knv-pr-wiK"/>
+                    <connections>
+                        <outlet property="AnalyseButton" destination="rC0-0s-o24" id="eYx-Wf-kZc"/>
+                        <outlet property="AnalysisChart" destination="EcV-FL-2Q3" id="fwz-mR-ggl"/>
+                        <outlet property="Options" destination="uUb-jv-lvI" id="iYW-Zm-9un"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgY-mN-mgs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="795.53571428571422"/>
+        </scene>
+        <!--State View Controller-->
+        <scene sceneID="oz1-HV-3v4">
+            <objects>
+                <viewController storyboardIdentifier="state" id="BtG-82-sob" customClass="StateViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8wv-TN-QWA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROc-rV-vKY" userLabel="Line Chart" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="315" width="374" height="417"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo4-Tr-kDM">
+                                <rect key="frame" x="20" y="91" width="374" height="86"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="9xM-Jc-pQG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scv-wP-A8z">
+                                <rect key="frame" x="186" y="194" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-0o-GHG">
+                                <rect key="frame" x="20" y="232" width="81" height="33"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" label="confirmed"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Confirmed">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SelectType:" destination="BtG-82-sob" eventType="touchUpInside" id="UTM-6O-yq6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnx-ow-Dd0">
+                                <rect key="frame" x="154" y="232" width="82" height="33"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" label="recovered"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Recovered">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="SelectType:" destination="BtG-82-sob" eventType="touchUpInside" id="Lx7-it-GPy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kG-dE-znQ">
+                                <rect key="frame" x="315" y="232" width="77" height="33"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" label="deceased"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Deceased">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="SelectType:" destination="BtG-82-sob" eventType="touchUpInside" id="aSA-5s-c7p"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="scv-wP-A8z" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="17" id="1po-Df-GXz"/>
+                            <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="ROc-rV-vKY" secondAttribute="trailing" constant="20" id="3wd-CB-8Ro"/>
+                            <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="mo4-Tr-kDM" secondAttribute="trailing" constant="20" id="8nL-lY-nHZ"/>
+                            <constraint firstItem="ROc-rV-vKY" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="JlB-DP-8vw"/>
+                            <constraint firstItem="mo4-Tr-kDM" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="WGO-Xi-Yzu"/>
+                            <constraint firstItem="4fj-0o-GHG" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="fKC-Al-kjf"/>
+                            <constraint firstItem="4fj-0o-GHG" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="55" id="fom-WF-Wu8"/>
+                            <constraint firstItem="0kG-dE-znQ" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="55" id="gPy-zN-mm9"/>
+                            <constraint firstItem="ROc-rV-vKY" firstAttribute="top" secondItem="wnx-ow-Dd0" secondAttribute="bottom" constant="50" id="lsB-ve-Nx1"/>
+                            <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="0kG-dE-znQ" secondAttribute="trailing" constant="22" id="qhb-iQ-3pq"/>
+                            <constraint firstItem="Dqt-7m-llh" firstAttribute="bottom" secondItem="ROc-rV-vKY" secondAttribute="bottom" constant="81" id="u71-ro-BjN"/>
+                            <constraint firstItem="mo4-Tr-kDM" firstAttribute="top" secondItem="Dqt-7m-llh" secondAttribute="top" constant="47" id="uJF-At-hdS"/>
+                            <constraint firstItem="wnx-ow-Dd0" firstAttribute="top" secondItem="scv-wP-A8z" secondAttribute="bottom" constant="17" id="zgS-Ki-frK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dqt-7m-llh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dUo-ht-ZfP"/>
+                    <connections>
+                        <outlet property="ConfirmedButton" destination="4fj-0o-GHG" id="g9r-Uj-wgB"/>
+                        <outlet property="DeceasedButton" destination="0kG-dE-znQ" id="Cua-nr-lVk"/>
+                        <outlet property="LastUpdate" destination="scv-wP-A8z" id="2ET-5n-cxN"/>
+                        <outlet property="LineChart" destination="ROc-rV-vKY" id="95g-Zx-ct6"/>
+                        <outlet property="RecoveredButton" destination="wnx-ow-Dd0" id="6Hp-Sz-XZG"/>
+                        <outlet property="StateSelected" destination="mo4-Tr-kDM" id="lwR-bl-SfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lda-P1-zlp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018.840579710145" y="87.723214285714278"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="411-Bf-8uZ"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="BackgroundMap" width="892" height="1209"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
