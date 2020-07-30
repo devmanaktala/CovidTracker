@@ -13,11 +13,11 @@ import UIKit
 
 
 class AnalysisViewController: UIViewController{
-    
+    @IBOutlet weak var Options: UIPickerView!
     @IBOutlet weak var AnalysisChart: BarChartView!
     
     @IBOutlet weak var AnalyseButton: UIButton!
-    @IBOutlet weak var Options: UIPickerView!
+    
     
     var states:States!
     
@@ -137,46 +137,62 @@ class AnalysisViewController: UIViewController{
 
 extension AnalysisViewController:UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        if pickerView == Options{
+            return 3
+        }
+        else{
+            return 1
+        }
     }
-    
+        
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 || component == 1{
-            return states_used.count
+        if pickerView == Options{
+            if component == 0 || component == 1{
+                return states_used.count
+            }
+            else {
+                return data_type.count
+            }
         }
-        else {
-            return data_type.count
+        else{
+            return days_selected.count
         }
     }
-    
 }
 
 extension AnalysisViewController: UIPickerViewDelegate{
-    
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 || component == 1{
-            return states_used[row]
+        if pickerView == Options{
+            if component == 0 || component == 1{
+                return states_used[row]
+            }
+            else {
+                return data_type[row]
+            }
         }
         else {
-            return data_type[row]
+            return days_selected[row]
         }
     }
-    
-   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var label = UILabel()
-        if let v = view {
-            label = v as! UILabel
-        }
-        label.font = UIFont (name: "Helvetica Neue", size: 16)
-        if component == 0 || component == 1{
-            label.text =  states_used[row]
-        }
-        else{
-            label.text =  data_type[row]
-        }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+            var label = UILabel()
+            if let v = view {
+                label = v as! UILabel
+            }
+            label.font = UIFont (name: "Helvetica Neue", size: 16)
+            if pickerView == Options{
+                if component == 0 || component == 1{
+                    label.text =  states_used[row]
+                }
+                else{
+                    label.text =  data_type[row]
+                }
+            }
+            else{
+                label.text = days_selected[row]
+            }
         label.textAlignment = .center
         return label
-    
 }
+    
 }

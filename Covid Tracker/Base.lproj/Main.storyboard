@@ -178,10 +178,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROc-rV-vKY" userLabel="Line Chart" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="315" width="374" height="417"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo4-Tr-kDM">
                                 <rect key="frame" x="20" y="91" width="374" height="86"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -235,21 +231,36 @@
                                     <action selector="SelectType:" destination="BtG-82-sob" eventType="touchUpInside" id="aSA-5s-c7p"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-dN-dQV">
+                                <rect key="frame" x="11" y="276" width="392" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="ldG-RE-z4b"/>
+                                </constraints>
+                            </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROc-rV-vKY" userLabel="Line Chart" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="427" width="374" height="417"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="scv-wP-A8z" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="17" id="1po-Df-GXz"/>
                             <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="ROc-rV-vKY" secondAttribute="trailing" constant="20" id="3wd-CB-8Ro"/>
+                            <constraint firstItem="Ujx-dN-dQV" firstAttribute="top" secondItem="4fj-0o-GHG" secondAttribute="bottom" constant="11" id="5Uh-ZS-VDs"/>
                             <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="mo4-Tr-kDM" secondAttribute="trailing" constant="20" id="8nL-lY-nHZ"/>
+                            <constraint firstItem="ROc-rV-vKY" firstAttribute="top" secondItem="Ujx-dN-dQV" secondAttribute="bottom" constant="39" id="GTn-1A-uFP"/>
                             <constraint firstItem="ROc-rV-vKY" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="JlB-DP-8vw"/>
+                            <constraint firstItem="Ujx-dN-dQV" firstAttribute="leading" secondItem="8wv-TN-QWA" secondAttribute="leading" constant="11" id="Qmj-54-KhD"/>
                             <constraint firstItem="mo4-Tr-kDM" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="WGO-Xi-Yzu"/>
                             <constraint firstItem="4fj-0o-GHG" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="fKC-Al-kjf"/>
                             <constraint firstItem="4fj-0o-GHG" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="55" id="fom-WF-Wu8"/>
                             <constraint firstItem="0kG-dE-znQ" firstAttribute="top" secondItem="mo4-Tr-kDM" secondAttribute="bottom" constant="55" id="gPy-zN-mm9"/>
-                            <constraint firstItem="ROc-rV-vKY" firstAttribute="top" secondItem="wnx-ow-Dd0" secondAttribute="bottom" constant="50" id="lsB-ve-Nx1"/>
+                            <constraint firstAttribute="trailing" secondItem="Ujx-dN-dQV" secondAttribute="trailing" constant="11" id="nBJ-r9-7VE"/>
                             <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="0kG-dE-znQ" secondAttribute="trailing" constant="22" id="qhb-iQ-3pq"/>
-                            <constraint firstItem="Dqt-7m-llh" firstAttribute="bottom" secondItem="ROc-rV-vKY" secondAttribute="bottom" constant="81" id="u71-ro-BjN"/>
+                            <constraint firstAttribute="bottom" secondItem="ROc-rV-vKY" secondAttribute="bottom" constant="52" id="reP-iN-0oA"/>
+                            <constraint firstItem="ROc-rV-vKY" firstAttribute="leading" secondItem="Dqt-7m-llh" secondAttribute="leading" constant="20" id="sjF-dx-emb"/>
                             <constraint firstItem="mo4-Tr-kDM" firstAttribute="top" secondItem="Dqt-7m-llh" secondAttribute="top" constant="47" id="uJF-At-hdS"/>
+                            <constraint firstItem="Dqt-7m-llh" firstAttribute="trailing" secondItem="ROc-rV-vKY" secondAttribute="trailing" constant="20" id="uZo-vX-eZc"/>
                             <constraint firstItem="wnx-ow-Dd0" firstAttribute="top" secondItem="scv-wP-A8z" secondAttribute="bottom" constant="17" id="zgS-Ki-frK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dqt-7m-llh"/>
@@ -257,6 +268,7 @@
                     <navigationItem key="navigationItem" id="dUo-ht-ZfP"/>
                     <connections>
                         <outlet property="ConfirmedButton" destination="4fj-0o-GHG" id="g9r-Uj-wgB"/>
+                        <outlet property="Days_Selected" destination="Ujx-dN-dQV" id="vGx-fT-1Kd"/>
                         <outlet property="DeceasedButton" destination="0kG-dE-znQ" id="Cua-nr-lVk"/>
                         <outlet property="LastUpdate" destination="scv-wP-A8z" id="2ET-5n-cxN"/>
                         <outlet property="LineChart" destination="ROc-rV-vKY" id="95g-Zx-ct6"/>
@@ -270,7 +282,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="411-Bf-8uZ"/>
+        <segue reference="1RV-xi-55b"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BackgroundMap" width="892" height="1209"/>

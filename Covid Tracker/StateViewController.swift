@@ -11,8 +11,10 @@ import UIKit
 
 import Charts
 
+let days_selected = ["7","14","21","30"]
 class StateViewController: UIViewController{
     
+    @IBOutlet weak var Days_Selected: UIPickerView!
     var GraphSelected: String!
     var colorScheme: UIColor!
     var Dataset:LineChartDataSet!
@@ -24,10 +26,6 @@ class StateViewController: UIViewController{
     var button_pressed: UIButton!
     
     @IBOutlet weak var StateSelected: UILabel!
-    
-    @IBOutlet weak var NewCases: UILabel!
-    
-    @IBOutlet weak var Date: UILabel!
     
     var states:States!
     
@@ -46,7 +44,9 @@ class StateViewController: UIViewController{
         
         setupHighlights(button: button_pressed)
         configureButtons()
-        setUpLineChart()
+        setUpLineChart(days:7)
+        Days_Selected.delegate = self
+        Days_Selected.dataSource = self
     }
     
     
@@ -79,7 +79,7 @@ class StateViewController: UIViewController{
         
     }
     
-    func setUpLineChart(){
+    func setUpLineChart(days: Int){
         LineChart.backgroundColor = .systemGray2
         LineChart.rightAxis.enabled = false
         
@@ -97,7 +97,7 @@ class StateViewController: UIViewController{
         LineChart.xAxis.axisLineColor = colorScheme
         LineChart.xAxis.labelTextColor = .white
         
-        DisplayData(days: 14, type: 3)
+        DisplayData(days: days, type: 3)
         
     }
     
@@ -105,33 +105,34 @@ class StateViewController: UIViewController{
     
     func setData(days: Int, type: Int){
         yValues.removeAll()
+        let length = states.states_daily.count
         switch(button_pressed.accessibilityLabel){
         case "Delhi":
             for i in (1...days){
-                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[states.states_daily.count-(type + 3*(days-i))].dl)!))
-                dates.append(states.states_daily[states.states_daily.count-(type + 3*(days-i))].date)
+                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[length-(type + 3*(days-i))].dl)!))
+                dates.append(states.states_daily[length-(type + 3*(days-i))].date)
             }
             print(yValues)
             break
         
         case "Maharashtra":
             for i in (1...days){
-                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[states.states_daily.count-(type + 3*(days-i))].mh)!))
-                dates.append(states.states_daily[states.states_daily.count-(type + 3*(days-i))].date)
+                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[length-(type + 3*(days-i))].mh)!))
+                dates.append(states.states_daily[length-(type + 3*(days-i))].date)
             }
             break
             
         case "Tamil Nadu":
             for i in (1...days){
-                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[states.states_daily.count-(type + 3*(days-i))].tn)!))
-                dates.append(states.states_daily[states.states_daily.count-(type + 3*(days-i))].date)
+                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[length-(type + 3*(days-i))].tn)!))
+                dates.append(states.states_daily[length-(type + 3*(days-i))].date)
             }
             break
             
         case "West Bengal":
             for i in (1...days){
-                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[states.states_daily.count-(type + 3*(days-i))].wb)!))
-                dates.append(states.states_daily[states.states_daily.count-(type + 3*(days-i))].date)
+                yValues.append(ChartDataEntry(x: Double(i), y: Double(states.states_daily[length-(type + 3*(days-i))].wb)!))
+                dates.append(states.states_daily[length-(type + 3*(days-i))].date)
             }
             print(yValues)
             break
@@ -172,14 +173,14 @@ class StateViewController: UIViewController{
         default:
             print("Error")
         }
-        DisplayData(days: 14, type: sender.tag)
+        DisplayData(days: Int(pickerView(Days_Selected, titleForRow: Days_Selected.selectedRow(inComponent: 0), forComponent: 0)!) ?? 7 , type: sender.tag)
         
     }
     
     func DisplayData(days: Int, type: Int){
         
-        setData(days: 14, type: type)
-        Dataset = LineChartDataSet(entries: yValues, label: "x\(type)")
+        setData(days: days, type: type)
+        Dataset = LineChartDataSet(entries: yValues, label: GraphSelected)
         Data = LineChartData(dataSet: Dataset)
         Dataset.mode = .cubicBezier
         Dataset.fill = Fill(color: colorScheme)
@@ -204,3 +205,38 @@ class StateViewController: UIViewController{
     }
     
 }
+extension StateViewController:UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return days_selected.count
+    }
+}
+
+extension StateViewController: UIPickerViewDelegate{
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+            return days_selected[row]
+    
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+            var label = UILabel()
+            if let v = view {
+                label = v as! UILabel
+            }
+            label.font = UIFont (name: "Helvetica Neue", size: 16)
+            
+            label.text = days_selected[row]
+            
+        label.textAlignment = .center
+        return label
+}
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        setUpLineChart(days: Int(days_selected[row]) ?? 7)
+        print(days_selected[row])
+    }
+}
+
